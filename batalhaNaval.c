@@ -1,44 +1,24 @@
-#include <stdio.h>
-
-#define LINHAS 5
-#define COLUNAS 5
+# include <stdio.h>
 
 int main() {
-    char tabuleiro[LINHAS][COLUNAS]; // Matriz do tabuleiro
+    int tabuleiro[5][5]= {0}; //tabuleiro 5x5 preenchido com zeros
 
-    // Inicializa o tabuleiro com '~' (água)
-    for (int i = 0; i < LINHAS; i++) {
-        for (int j = 0; j < COLUNAS; j++) {
-            tabuleiro[i][j] = '~';
-        }
-    }
+    //Posicionando o navio horizontalmente
+    tabuleiro[1][1] = 1;
+    tabuleiro[1][2] = 1;
+    tabuleiro[1][3] = 1;
 
-    // Define posição dos navios
-    int navioVerticalX = 1, navioVerticalY = 2, tamanhoVertical = 3;
-    int navioHorizontalX = 3, navioHorizontalY = 0, tamanhoHorizontal = 4;
+    //Posicionando o navio verticalmente
+    tabuleiro[3][2] = 1;
+    tabuleiro[4][2] = 1;
+   
 
-    // Posiciona o navio vertical
-    printf("Navio Vertical:\n");
-    for (int i = 0; i < tamanhoVertical; i++) {
-        tabuleiro[navioVerticalX + i][navioVerticalY] = 'N';
-        printf("(%d, %d)\n", navioVerticalX + i, navioVerticalY);
-    }
-
-    // Posiciona o navio horizontal
-    printf("\nNavio Horizontal:\n");
-    for (int i = 0; i < tamanhoHorizontal; i++) {
-        tabuleiro[navioHorizontalX][navioHorizontalY + i] = 'N';
-        printf("(%d, %d)\n", navioHorizontalX, navioHorizontalY + i);
-    }
-
-    // Exibe o tabuleiro
-    printf("\nTabuleiro:\n");
-    for (int i = 0; i < LINHAS; i++) {
-        for (int j = 0; j < COLUNAS; j++) {
-            printf("%c ", tabuleiro[i][j]);
+    //Imprimindo o tabuleiro
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            printf("%d ", tabuleiro[i][j]);
         }
         printf("\n");
     }
-
     return 0;
 }
